@@ -1,0 +1,14 @@
+python-dotenv
+pandas
+numpy
+# as per req
+# torch
+transformers
+sqlalchemy
+pyodbc
+fastapi
+pydantic
+uvicorn
+streamlit
+requests
+mcp

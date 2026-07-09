@@ -1,0 +1,28 @@
+# PHISHING Project Setup Commands
+
+# 1. Create and activate a conda environment
+conda create -n phishing python=3.11 -y
+conda activate phishing
+
+# 2. Install dependencies
+pip install --upgrade pip
+pip install -r .requirements.txt
+
+# 3. Edit .env as needed
+# Open .env and set DB_SERVER, DB_DATABASE, DB_TABLE, MODEL_PATH, SEMANTIC_MODEL_PATH, etc.
+
+# 4. Run the LLM router server
+uvicorn llm_server:app --host 127.0.0.1 --port 8001
+# or
+python llm_server.py
+
+# 5. Run the Streamlit UI
+streamlit run phishing_streamlit_ui.py
+# or if you want no-LLM mode
+streamlit run phishing_streamlit_ui_noLLM.py
+
+# 6. Run tests
+python -m unittest tests/test_llm_server_import.py
+
+# 7. Generate synthetic data (optional)
+python data_generator.py
